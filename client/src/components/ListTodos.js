@@ -1,10 +1,11 @@
 import React from 'react';
+import main from './main.module.css';
 import styles from './ListTodos.module.css';
 
 const ListTodos = () => {
   return (
     <>
-      <h1 className={styles.heading2}>ListTodos</h1>
+      <h1 className={main.heading}>ListTodos</h1>
     </>
   );
 };
