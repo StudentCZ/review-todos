@@ -11,7 +11,7 @@ router.post('/todos', async (req, res) => {
       `INSERT INTO todo (description) VALUES($1) RETURNING *`,
       [description]
     );
-    res.json(newTodo.rows);
+    res.status(200).json(newTodo.rows);
   } catch (error) {
     console.error(error.message);
   }
@@ -20,7 +20,7 @@ router.post('/todos', async (req, res) => {
 router.get('/todos', async (req, res) => {
   try {
     const allTodos = await pool.query('SELECT * FROM todo');
-    res.json(allTodos.rows);
+    res.status(200).json(allTodos.rows);
   } catch (error) {
     console.error(error.message);
   }
