@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './InputTodo.module.css';
 
 const InputTodo = () => {
+  const [description, setDescription] = useState('');
+
   return (
     <>
       <h1 className={styles.heading}>My Todo List</h1>
