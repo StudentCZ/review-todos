@@ -44,7 +44,7 @@ router.put('/todos/:id', async (req, res) => {
       `UPDATE todo SET description = $1 WHERE todo_id = $2`,
       [description, id]
     );
-    res.json('todo was updated');
+    res.status(200).json(updateTodo.command);
   } catch (error) {
     console.error(error.message);
   }
@@ -56,7 +56,7 @@ router.delete('/todos/:id', async (req, res) => {
     const deleteTodo = await pool.query(
       `DELETE FROM todo WHERE todo_id = ${id}`
     );
-    res.json('successfully deleted todo');
+    res.status(200).json(deleteTodo.command);
   } catch (error) {
     console.log;
   }
