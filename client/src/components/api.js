@@ -5,6 +5,7 @@ export const AddToForm = async (description) => {
   try {
     const body = { description };
     const response = await axios.post('http://localhost:5001/todos', body);
+    window.location = '/';
   } catch (error) {
     console.log(error);
   }
