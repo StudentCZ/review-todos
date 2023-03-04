@@ -4,7 +4,9 @@ import InputTodo from './components/InputTodo';
 function App() {
   return (
     <>
-      <InputTodo />
+      <div className='container'>
+        <InputTodo />
+      </div>
     </>
   );
 }
