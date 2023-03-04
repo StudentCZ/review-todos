@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import styles from './InputTodo.module.css';
+import { AddToForm } from './calls';
 
 const InputTodo = () => {
   const [description, setDescription] = useState('');
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await AddToForm(description);
+    setDescription('');
+  };
   return (
     <>
       <h1 className={styles.heading}>My Todo List</h1>
-      <form className={styles.form1}>
+      <form className={styles.form1} onSubmit={handleSubmit}>
         <input
           type='text'
           className={styles.input1}

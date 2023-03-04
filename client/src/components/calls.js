@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export const AddToForm = async (e) => {
-  const [description, setDescription] = useState('');
-  e.preventDefault();
+export const AddToForm = async (description) => {
   try {
     const body = { description };
     const response = await fetch('http://localhost:5001/todos', {
