@@ -1,3 +1,16 @@
 .heading {
   text-align: center;
 }
+
+.form1 {
+  text-align: center;
+}
+
+.input1 {
+  width: 30%;
+}
+
+.button1 {
+  color: white;
+  background-color: green;
+}
