@@ -30,7 +30,7 @@ router.get('/todos/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const todo = await pool.query(`SELECT * FROM todo WHERE todo_id = ${id}`);
-    res.json(todo.rows);
+    res.status(200).json(todo.rows);
   } catch (error) {
     console.error(error.message);
   }
