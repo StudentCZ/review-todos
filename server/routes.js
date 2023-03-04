@@ -11,8 +11,6 @@ router.post('/todos', async (req, res) => {
       `INSERT INTO todo (description) VALUES($1) RETURNING *`,
       [description]
     );
-    res.statusMessage('added todo to database');
-    res.status(200);
     res.json(newTodo.rows);
   } catch (error) {
     console.error(error.message);
