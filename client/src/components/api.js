@@ -3,18 +3,19 @@ import axios from 'axios';
 
 export const AddToForm = async (todo, setTodos) => {
   try {
-    const response = await axios.post('http://localhost:5001/todos', todo);
-    setTodos((prevTodos) => [...prevTodos, response.data]);
-    return response;
+    const { data } = await axios.post('http://localhost:5001/todos', todo);
+    setTodos((prevTodos) => [...prevTodos, data]);
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error(error.message);
+    throw error;
   }
 };
 
 export const getTodos = async (object) => {
   try {
-    const response = await axios.get('http://localhost:5001/todos');
-    return object(response.data);
+    const { data } = await axios.get('http://localhost:5001/todos');
+    return object(data);
   } catch (error) {
     console.error(error.message);
   }
