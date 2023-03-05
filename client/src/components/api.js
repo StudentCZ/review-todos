@@ -21,7 +21,7 @@ export const getTodos = async (object) => {
   }
 };
 
-export const deleteFromTodo = async (id, setTodos) => {
+export const handleDeleteTodo = async (id, setTodos) => {
   try {
     const deleteTodo = await axios.delete(`http://localhost:5001/todos/${id}`);
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.todo_id !== id));

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getTodos, deleteFromTodo } from './api';
+import { getTodos, handleDeleteTodo } from './api';
 import main from './main.module.css';
 import styles from './ListTodos.module.css';
 
@@ -28,7 +28,7 @@ const ListTodos = () => {
                 <td>Edit</td>
                 <td>
                   <button
-                    onClick={() => deleteFromTodo(todo.todo_id, setTodos)}
+                    onClick={() => handleDeleteTodo(todo.todo_id, setTodos)}
                   >
                     Delete
                   </button>
