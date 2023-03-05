@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { getTodos, handleDeleteTodo } from './api';
-import main from './main.module.css';
 import styles from './ListTodos.module.css';
 
 const ListTodos = () => {
