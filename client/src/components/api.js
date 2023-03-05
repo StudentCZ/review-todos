@@ -1,14 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 
-export const AddToForm = async (description, setTodos) => {
+export const AddToForm = async (todo, setTodos) => {
   try {
-    const body = { description };
-    const response = await axios.post('http://localhost:5001/todos', body);
-    const newTodo = response.data;
-    return newTodo;
+    const response = await axios.post('http://localhost:5001/todos', todo);
+    setTodos((prevTodos) => [...prevTodos, response.data]);
+    return response;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 

@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import styles from './InputTodo.module.css';
-import { AddToForm } from './api';
 
-const InputTodo = ({ handleAddTodo, setTodos }) => {
+const InputTodo = ({ handleAddTodo }) => {
   const [description, setDescription] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await handleAddTodo(description, setTodos);
+    await handleAddTodo(description);
     setDescription('');
   };
   return (
