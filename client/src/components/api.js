@@ -29,3 +29,16 @@ export const deleteFromTodo = async (id, setTodos) => {
     console.error(error.message);
   }
 };
+
+export const UpdateATodo = async (id, description) => {
+  try {
+    const body = { description };
+    const updateTodo = await axios.put(
+      `http://localhost:5001/todos/${id}`,
+      body
+    );
+    return updateTodo.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
