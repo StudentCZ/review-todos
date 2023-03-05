@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { AddToForm } from './components/api';
 import InputTodo from './components/InputTodo';
 import ListTodos from './components/ListTodos';
-import Modal from './components/Modal';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -28,7 +27,6 @@ const App = () => {
       ) : (
         <ListTodos todos={todos} setTodos={setTodos} />
       )}
-      <Modal />
     </div>
   );
 };
