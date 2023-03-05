@@ -1,22 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { getTodos } from './api';
 import main from './main.module.css';
 import styles from './ListTodos.module.css';
 
 const ListTodos = () => {
   const [todos, setTodos] = useState([]);
 
-  const getTodos = async () => {
-    try {
-      const response = await fetch('http://localhost:5001/todos');
-      const data = await response.json();
-      setTodos(data);
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
-
   useEffect(() => {
-    getTodos();
+    getTodos(setTodos);
   }, []);
 
   return (
@@ -30,9 +21,9 @@ const ListTodos = () => {
           </tr>
         </thead>
         <tbody>
-          {todos.map((todo) => {
+          {todos.map((todo, index) => {
             return (
-              <tr key={todo.id}>
+              <tr key={index || 'default'}>
                 <td>{todo.description}</td>
                 <td>Edit</td>
                 <td>Delete</td>

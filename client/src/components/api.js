@@ -11,6 +11,15 @@ export const AddToForm = async (description) => {
   }
 };
 
+export const getTodos = async (object) => {
+  try {
+    const response = await axios.get('http://localhost:5001/todos');
+    return object(response.data);
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
 // export const AddToForm = async (description) => {
 //   try {
 //     const body = { description };
