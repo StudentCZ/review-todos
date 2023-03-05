@@ -9,6 +9,7 @@ const ListTodos = () => {
     try {
       const response = await fetch('http://localhost:5001/todos');
       const data = await response.json();
+      setTodos(data);
     } catch (error) {
       console.error(error.message);
     }
@@ -21,16 +22,24 @@ const ListTodos = () => {
   return (
     <>
       <table className={styles.table}>
-        <tr>
-          <th>Description</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-        {/* <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
-        </tr> */}
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {todos.map((todo) => {
+            return (
+              <tr key={todo.id}>
+                <td>{todo.description}</td>
+                <td>Edit</td>
+                <td>Delete</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </>
   );
