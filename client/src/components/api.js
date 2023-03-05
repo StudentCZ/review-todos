@@ -20,6 +20,15 @@ export const getTodos = async (object) => {
   }
 };
 
+export const deleteFromTodo = async (id, setTodos) => {
+  try {
+    const deleteTodo = await axios.delete(`http://localhost:5001/todos/${id}`);
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.todo_id !== id));
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
 // export const AddToForm = async (description) => {
 //   try {
 //     const body = { description };

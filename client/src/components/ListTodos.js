@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getTodos } from './api';
+import { getTodos, deleteFromTodo } from './api';
 import main from './main.module.css';
 import styles from './ListTodos.module.css';
 
@@ -21,12 +21,18 @@ const ListTodos = () => {
           </tr>
         </thead>
         <tbody>
-          {todos.map((todo, index) => {
+          {todos.map((todo) => {
             return (
-              <tr key={index || 'default'}>
+              <tr key={todo.todo_id}>
                 <td>{todo.description}</td>
                 <td>Edit</td>
-                <td>Delete</td>
+                <td>
+                  <button
+                    onClick={() => deleteFromTodo(todo.todo_id, setTodos)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
