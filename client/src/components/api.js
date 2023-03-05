@@ -1,11 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 
-export const AddToForm = async (description) => {
+export const AddToForm = async (description, setTodos) => {
   try {
     const body = { description };
     const response = await axios.post('http://localhost:5001/todos', body);
-    window.location = '/';
+    const newTodo = response.data;
+    return newTodo;
   } catch (error) {
     console.log(error);
   }
@@ -28,18 +29,3 @@ export const deleteFromTodo = async (id, setTodos) => {
     console.error(error.message);
   }
 };
-
-// export const AddToForm = async (description) => {
-//   try {
-//     const body = { description };
-//     const response = await fetch('http://localhost:5001/todos', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(body),
-//     });
-//   } catch (error) {
-//     console.error(error.message);
-//   }
-// };
